@@ -6,7 +6,6 @@
 
 **Lớp:** 12523T.1
 
----
 
 # Giới thiệu đề tài
 
@@ -33,7 +32,6 @@ Xây dựng ứng dụng Android giúp người dùng:
 
 Đồng thời cung cấp phân hệ Admin giúp quản lý phim, lịch chiếu, đơn đặt vé và người dùng bằng cơ sở dữ liệu SQLite.
 
----
 
 # Thiết kế Cơ sở dữ liệu (Database)
 
@@ -54,8 +52,6 @@ Các trường:
 * phone
 * role
 
----
-
 ### Phim
 
 Quản lý thông tin phim.
@@ -71,7 +67,6 @@ Các trường:
 * hinhAnh
 * giaVe
 
----
 
 ### RapPhim
 
@@ -83,7 +78,6 @@ Các trường:
 * tenRap
 * diaChi
 
----
 
 ### SuatChieu
 
@@ -98,7 +92,6 @@ Các trường:
 * gioChieu
 * phongChieu
 
----
 
 ### Ghe
 
@@ -111,7 +104,6 @@ Các trường:
 * trangThai
 * idSuatChieu
 
----
 
 ### Ve
 
@@ -139,7 +131,6 @@ Các trường:
 * idGhe
 * gia
 
----
 
 # Luồng chức năng (Use Cases)
 
@@ -188,7 +179,6 @@ Xem danh sách các vé đã đặt.
 
 Thoát khỏi hệ thống.
 
----
 
 ## Quản trị viên (Admin)
 
@@ -224,7 +214,6 @@ Thoát khỏi hệ thống.
 * Xem danh sách người dùng
 * Đổi mật khẩu
 
----
 
 # Công nghệ & Kiến trúc sử dụng
 
@@ -261,7 +250,6 @@ SQLite
 * Intent
 * SharedPreferences
 
----
 
 # Kết quả đạt được
 
@@ -272,7 +260,6 @@ SQLite
 * Chức năng CRUD hoạt động chính xác.
 * Đặt vé và quản lý ghế hoạt động tốt.
 
----
 
 # Hạn chế
 
@@ -280,7 +267,6 @@ SQLite
 * Chưa hỗ trợ thanh toán trực tuyến.
 * Chưa đồng bộ giữa nhiều thiết bị.
 
----
 
 # Hướng phát triển
 
@@ -290,7 +276,6 @@ SQLite
 * Đánh giá phim.
 * Theo dõi trạng thái vé theo thời gian thực.
 
----
 
 # Hướng dẫn chạy dự án
 
@@ -314,7 +299,6 @@ Sau đó:
 3. Chờ Gradle đồng bộ
 4. Nhấn Run App
 
----
 
 # Tài khoản mặc định
 
@@ -329,8 +313,6 @@ Mật khẩu:
 ## User
 
 Có thể đăng ký tài khoản mới trên ứng dụng.
-
----
 
 # Cấu trúc thư mục dự án
 
@@ -355,7 +337,6 @@ Có thể đăng ký tài khoản mới trên ứng dụng.
 ├── README.md
 └── .gitignore
 
----
 
 # Tác giả
 
