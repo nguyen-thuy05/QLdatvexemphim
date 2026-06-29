@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Cinematic Light Theme Colors -->
+    <color name="background">#F5F5F7</color> <!-- Off-white background -->
+    <color name="surface">#FFFFFF</color> <!-- Pure white for cards/menus -->
+    <color name="surface_variant">#E5E5EA</color> <!-- Light gray secondary -->
+    <color name="surface_input">#F2F2F7</color> <!-- Light input background -->
+    <color name="divider">#E5E5EA</color> <!-- Soft divider -->
+    
+    <!-- Brand / Accent Colors (Adjusted for readability in light mode) -->
+    <color name="primary">#FF9800</color> <!-- Warm amber / gold -->
+    <color name="primary_dark">#F57C00</color>
+    <color name="accent_orange">#FF5722</color>
+    <color name="accent_red">#D32F2F</color>
+    <color name="accent_green">#388E3C</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#1C1C1E</color> <!-- Near black -->
+    <color name="text_secondary">#48484A</color> <!-- Dark gray -->
+    <color name="text_muted">#8E8E93</color> <!-- Soft gray -->
+    
+    <!-- Seat selection colors -->
+    <color name="seat_available">#E5E5EA</color>
+    <color name="seat_selected">#FF9800</color>
+    <color name="seat_booked">#D32F2F</color>
+</resources>

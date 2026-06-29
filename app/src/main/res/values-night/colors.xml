@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Cinematic Dark Theme Colors -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_variant">#2E2E32</color>
+    <color name="surface_input">#262629</color>
+    <color name="divider">#2D2D30</color>
+    
+    <!-- Brand / Accent Colors -->
+    <color name="primary">#FFC107</color> <!-- Golden Yellow -->
+    <color name="primary_dark">#FFA000</color>
+    <color name="accent_orange">#FF5722</color>
+    <color name="accent_red">#E53935</color>
+    <color name="accent_green">#4CAF50</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B5</color>
+    <color name="text_muted">#6E6E73</color>
+    
+    <!-- Seat selection colors -->
+    <color name="seat_available">#3A3A3D</color>
+    <color name="seat_selected">#FFC107</color>
+    <color name="seat_booked">#E53935</color>
+</resources>

@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true"
+    tools:context=".AdminActivity">
+
+    <!-- Top Action Bar -->
+    <RelativeLayout
+        android:id="@+id/layout_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="@color/text_primary"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/txt_admin_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quản Trị Hệ Thống"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/btn_admin_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng xuất"
+            android:textColor="@color/accent_red"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 1. MAIN MENU HUB (VISIBLE BY DEFAULT) -->
+            <LinearLayout
+                android:id="@+id/layout_admin_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh Mục Quản Lý"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Grid Options: 3 columns, 1 row -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="1"
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- Option 1: Statistics -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_menu_stats"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:cardCornerRadius="16dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@android:drawable/ic_menu_compass"
+                                app:tint="@color/primary" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thống Kê Vé"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Option 2: Now Showing -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_menu_now_showing"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:cardCornerRadius="16dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@android:drawable/ic_menu_slideshow"
+                                app:tint="@color/accent_orange" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim Đang Chiếu"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Option 3: Coming Soon -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_menu_coming_soon"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:cardCornerRadius="16dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@android:drawable/ic_menu_today"
+                                app:tint="@color/accent_green" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phim Sắp Chiếu"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+                <!-- Transaction Logs / Bookings History at bottom of menu -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lịch Sử Giao Dịch Hệ Thống"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_admin_bookings"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="true"
+                    tools:listitem="@layout/item_ticket" />
+
+                <TextView
+                    android:id="@+id/txt_admin_no_bookings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chưa có giao dịch đặt vé nào."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:padding="30dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- 2. PANEL: STATISTICS (HIDDEN BY DEFAULT) -->
+            <LinearLayout
+                android:id="@+id/layout_panel_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Overall Stats Card (Revenue & Tickets) -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="20dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="20dp"
+                        android:weightSum="2">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tổng doanh thu"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/txt_stat_revenue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0đ"
+                                android:textColor="@color/primary"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:background="@color/divider"
+                            android:layout_gravity="center_vertical" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vé đã bán"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/txt_stat_tickets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 vé"
+                                android:textColor="@color/accent_orange"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Booked Tickets by Movie Statistics List -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thống Kê Số Vé Theo Phim"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="20dp">
+                    <LinearLayout
+                        android:id="@+id/layout_stats_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <!-- Dynamic items will be added programmatically -->
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- 3. PANEL: NOW SHOWING MANAGEMENT (HIDDEN BY DEFAULT) -->
+            <LinearLayout
+                android:id="@+id/layout_panel_now_showing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Movie list for now showing -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh Sách Phim Đang Chiếu"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/layout_now_showing_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+                    <!-- Dynamic rows -->
+                </LinearLayout>
+
+                <!-- Add Now Showing Movie Form (reusing original IDs) -->
+                <TextView
+                    android:id="@+id/txt_admin_form_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm Phim Đang Chiếu Mới"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_admin_now_showing_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+                        <EditText
+                            android:id="@+id/edt_admin_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Tên phim"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_genre"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Thể loại (ví dụ: Hành động, Viễn tưởng)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+                            <EditText
+                                android:id="@+id/edt_admin_duration"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_input_field"
+                                android:hint="Thời lượng (phút)"
+                                android:textColorHint="@color/text_muted"
+                                android:textColor="@color/text_primary"
+                                android:paddingHorizontal="16dp"
+                                android:inputType="number"
+                                android:layout_marginEnd="8dp" />
+                            <EditText
+                                android:id="@+id/edt_admin_rating"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_input_field"
+                                android:hint="Đánh giá (ví dụ: 4.8)"
+                                android:textColorHint="@color/text_muted"
+                                android:textColor="@color/text_primary"
+                                android:paddingHorizontal="16dp"
+                                android:inputType="numberDecimal" />
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/edt_admin_release"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Ngày khởi chiếu (Chọn ngày)"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_synopsis"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Tóm tắt nội dung phim..."
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:padding="16dp"
+                            android:gravity="top|start"
+                            android:layout_marginBottom="12dp"
+                            android:inputType="textMultiLine" />
+                        <EditText
+                            android:id="@+id/edt_admin_poster"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Link ảnh Poster (URL)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_cover"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Link ảnh Cover/Backdrop (URL)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- Hidden Status Selector RadioGroup, defaults to now_showing -->
+                        <RadioGroup
+                            android:id="@+id/rg_admin_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
+                            <RadioButton
+                                android:id="@+id/rb_admin_now"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true" />
+                            <RadioButton
+                                android:id="@+id/rb_admin_coming"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_admin_add_movie"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/bg_gradient_button"
+                            android:text="Thêm Phim Đang Chiếu"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_admin_cancel_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:text="Hủy Chỉnh Sửa"
+                            android:textColor="@color/accent_red"
+                            android:visibility="gone"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- 4. PANEL: COMING SOON MANAGEMENT (HIDDEN BY DEFAULT) -->
+            <LinearLayout
+                android:id="@+id/layout_panel_coming_soon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Movie list for coming soon -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh Sách Phim Sắp Chiếu"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/layout_coming_soon_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+                    <!-- Dynamic rows -->
+                </LinearLayout>
+
+                <!-- Add Coming Soon Movie Form (unique suffix IDs) -->
+                <TextView
+                    android:id="@+id/txt_admin_form_title_coming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm Phim Sắp Chiếu Mới"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_admin_coming_soon_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="24dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+                         <EditText
+                            android:id="@+id/edt_admin_title_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Tên phim"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_genre_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Thể loại (ví dụ: Hành động, Viễn tưởng)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+                            <EditText
+                                android:id="@+id/edt_admin_duration_coming"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_input_field"
+                                android:hint="Thời lượng (phút)"
+                                android:textColorHint="@color/text_muted"
+                                android:textColor="@color/text_primary"
+                                android:paddingHorizontal="16dp"
+                                android:inputType="number"
+                                android:layout_marginEnd="8dp" />
+                            <EditText
+                                android:id="@+id/edt_admin_rating_coming"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_input_field"
+                                android:hint="Đánh giá (ví dụ: 4.8)"
+                                android:textColorHint="@color/text_muted"
+                                android:textColor="@color/text_primary"
+                                android:paddingHorizontal="16dp"
+                                android:inputType="numberDecimal" />
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/edt_admin_release_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Ngày khởi chiếu (Chọn ngày)"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_synopsis_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Tóm tắt nội dung phim..."
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:padding="16dp"
+                            android:gravity="top|start"
+                            android:layout_marginBottom="12dp"
+                            android:inputType="textMultiLine" />
+                        <EditText
+                            android:id="@+id/edt_admin_poster_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Link ảnh Poster (URL)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="12dp" />
+                        <EditText
+                            android:id="@+id/edt_admin_cover_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_input_field"
+                            android:hint="Link ảnh Cover/Backdrop (URL)"
+                            android:inputType="text"
+                            android:textColorHint="@color/text_muted"
+                            android:textColor="@color/text_primary"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginBottom="16dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_admin_add_movie_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/bg_gradient_button"
+                            android:text="Thêm Phim Sắp Chiếu"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_admin_cancel_edit_coming"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:text="Hủy Chỉnh Sửa"
+                            android:textColor="@color/accent_red"
+                            android:visibility="gone"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
