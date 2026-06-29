@@ -118,7 +118,6 @@ Các trường:
 * ngayDat
 * trangThai
 
----
 
 ### ChiTietVe
 
